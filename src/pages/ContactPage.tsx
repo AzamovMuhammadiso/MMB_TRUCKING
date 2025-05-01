@@ -1,19 +1,20 @@
-import { useEffect } from 'react';
-import { motion } from 'framer-motion';
-import ContactForm from '../components/UI/ContactForm';
-import { MapPin, Phone, Mail, Clock } from 'lucide-react';
+import { useEffect } from "react";
+import { motion } from "framer-motion";
+import ContactForm from "../components/UI/ContactForm";
+import { MapPin, Phone, Mail, Clock } from "lucide-react";
 
 const ContactPage = () => {
   useEffect(() => {
-    document.title = 'Contact Us | MMB Trucking LLC';
+    document.title = "Contact Us | MMB Trucking LLC";
   }, []);
 
   return (
     <div className="pt-24 md:pt-28 pb-16">
-  <div 
+      <div
         className="bg-cover bg-center py-20 relative"
-        style={{ 
-          backgroundImage: "url('https://images.pexels.com/photos/2199293/pexels-photo-2199293.jpeg')" 
+        style={{
+          backgroundImage:
+            "url('https://images.pexels.com/photos/2199293/pexels-photo-2199293.jpeg')",
         }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-70"></div>
@@ -42,7 +43,7 @@ const ContactPage = () => {
           <div>
             <ContactForm />
           </div>
-          
+
           <div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -50,65 +51,86 @@ const ContactPage = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="bg-light-gray rounded-lg p-6 md:p-8 mb-8"
             >
-              <h3 className="text-2xl font-semibold mb-6">Contact Information</h3>
-              
+              <h3 className="text-2xl font-semibold mb-6">
+                Contact Information
+              </h3>
+
               <div className="space-y-6">
                 <div className="flex items-start">
-                  <MapPin size={24} className="text-accent mr-4 mt-1 flex-shrink-0" />
+                  <MapPin
+                    size={24}
+                    className="text-accent mr-4 mt-1 flex-shrink-0"
+                  />
                   <div>
                     <h4 className="font-medium mb-1">Address</h4>
                     <p className="text-gray-700">
-                      123 Trucking Lane<br />
-                      Logistics City, TX 75001
+                      458 BELL ROAD
+                      <br />
+                      NASHVILLE, TN 32217
                     </p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start">
-                  <Phone size={24} className="text-accent mr-4 mt-1 flex-shrink-0" />
+                  <Phone
+                    size={24}
+                    className="text-accent mr-4 mt-1 flex-shrink-0"
+                  />
                   <div>
                     <h4 className="font-medium mb-1">Phone</h4>
                     <p className="text-gray-700">+1 (423) 670-6644</p>
-                    <p className="text-sm text-gray-500">Mon-Fri, 8am-6pm CST</p>
+                    <p className="text-sm text-gray-500">
+                      Mon-Fri, 8am-6pm CST
+                    </p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start">
-                  <Mail size={24} className="text-accent mr-4 mt-1 flex-shrink-0" />
+                  <Mail
+                    size={24}
+                    className="text-accent mr-4 mt-1 flex-shrink-0"
+                  />
                   <div>
                     <h4 className="font-medium mb-1">Email</h4>
                     <p className="text-gray-700">infommbtrucking@gmail.com</p>
-                    <p className="text-sm text-gray-500">We'll respond within 24 hours</p>
+                    <p className="text-sm text-gray-500">
+                      We'll respond within 24 hours
+                    </p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start">
-                  <Clock size={24} className="text-accent mr-4 mt-1 flex-shrink-0" />
+                  <Clock
+                    size={24}
+                    className="text-accent mr-4 mt-1 flex-shrink-0"
+                  />
                   <div>
                     <h4 className="font-medium mb-1">Hours of Operation</h4>
                     <p className="text-gray-700">
-                      Monday - Friday: 8:00 AM - 6:00 PM<br />
-                      Saturday: 9:00 AM - 2:00 PM<br />
+                      Monday - Friday: 8:00 AM - 6:00 PM
+                      <br />
+                      Saturday: 9:00 AM - 2:00 PM
+                      <br />
                       Sunday: Closed
                     </p>
                   </div>
                 </div>
               </div>
             </motion.div>
-            
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
               className="bg-light-gray rounded-lg overflow-hidden h-80"
             >
-              <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d214587.14285414255!2d-96.87300615!3d32.8209263!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864c19f77b45974b%3A0xb9ec9ba4f647678f!2sDallas%2C%20TX!5e0!3m2!1sen!2sus!4v1651276413205!5m2!1sen!2sus" 
-                width="100%" 
-                height="100%" 
-                style={{ border: 0 }} 
-                allowFullScreen 
-                loading="lazy" 
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3254.258583851472!2d-86.63754862430298!3d36.072389908387876!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88646dba33891a99%3A0x47938a5f479c449f!2s458%20Bell%20Rd%2C%20Antioch%2C%20TN%2037013%2C%20USA!5e1!3m2!1sen!2s!4v1746125670343!5m2!1sen!2s"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 title="MMB Trucking Location"
               ></iframe>

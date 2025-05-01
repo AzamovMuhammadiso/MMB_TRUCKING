@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import JobListing from '../components/Careers/JobListing';
 import { Briefcase, ShieldCheck, DollarSign, Heart, Award, Clock } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const jobListings = [
   {
@@ -193,7 +194,7 @@ const CareersPage = () => {
           <div className="text-center mt-12">
             <p className="text-lg mb-4">Don't see a position that matches your skills?</p>
             <p className="mb-6">We're always looking for talented individuals to join our team.</p>
-            <a href="#" className="btn-primary text-white">
+            <a href="/contact" className="btn-primary text-white">
               Submit General Application
             </a>
           </div>

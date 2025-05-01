@@ -121,7 +121,8 @@ const Footer = () => {
               <li className="flex items-start space-x-3">
                 <MapPin size={20} className="text-accent mt-1 flex-shrink-0" />
                 <span className="text-gray-300">
-                  123 Trucking Lane, Logistics City, TX 75001
+                  458 BELL ROAD NASHVILLE, TN 32217
+                  
                 </span>
               </li>
               <li className="flex items-center space-x-3">

@@ -1,4 +1,3 @@
-import { Truck } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import BackgroundImg from "../../assets/cms.jpeg";
@@ -22,10 +21,6 @@ const HeroSection = () => {
           transition={{ duration: 0.8 }}
           className="bg-primary bg-opacity-40 backdrop-blur-sm p-8 rounded-lg inline-block max-w-3xl mx-auto"
         >
-          <div className="flex justify-center mb-6">
-            <Truck size={64} className="text-accent" />
-          </div>
-
           <motion.h1
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}

@@ -1,9 +1,43 @@
-import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Send } from 'lucide-react';
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { Send } from "lucide-react";
 
 const ContactForm = () => {
   const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const form = e.currentTarget; // safer than e.target
+    const formData = new FormData(form);
+
+    const data = {
+      name: formData.get("name") as string,
+      email: formData.get("email") as string,
+      phone: formData.get("phone") as string,
+      message: formData.get("message") as string,
+    };
+
+    try {
+      const res = await fetch("/.netlify/functions/telegram", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (res.ok) {
+        setSubmitted(true);
+        form.reset();
+      } else {
+        alert("Failed to send message. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error sending message:", error);
+      alert("An error occurred. Please try again later.");
+    }
+  };
 
   return (
     <motion.div
@@ -20,20 +54,12 @@ const ContactForm = () => {
         </div>
       ) : null}
 
-      <form
-        name="contact"
-        method="POST"
-        data-netlify="true"
-        data-netlify-honeypot="bot-field"
-        onSubmit={() => setSubmitted(true)}
-      >
-        {/* Required hidden input to register with Netlify */}
-        <input type="hidden" name="form-name" value="contact" />
-        {/* Honeypot field for spam protection */}
-        <input type="hidden" name="bot-field" />
-
+      <form onSubmit={handleSubmit}>
         <div className="mb-4">
-          <label htmlFor="name" className="block text-gray-700 font-medium mb-2">
+          <label
+            htmlFor="name"
+            className="block text-gray-700 font-medium mb-2"
+          >
             Full Name
           </label>
           <input
@@ -47,7 +73,10 @@ const ContactForm = () => {
         </div>
 
         <div className="mb-4">
-          <label htmlFor="email" className="block text-gray-700 font-medium mb-2">
+          <label
+            htmlFor="email"
+            className="block text-gray-700 font-medium mb-2"
+          >
             Email Address
           </label>
           <input
@@ -61,7 +90,10 @@ const ContactForm = () => {
         </div>
 
         <div className="mb-4">
-          <label htmlFor="phone" className="block text-gray-700 font-medium mb-2">
+          <label
+            htmlFor="phone"
+            className="block text-gray-700 font-medium mb-2"
+          >
             Phone Number
           </label>
           <input
@@ -74,7 +106,10 @@ const ContactForm = () => {
         </div>
 
         <div className="mb-6">
-          <label htmlFor="message" className="block text-gray-700 font-medium mb-2">
+          <label
+            htmlFor="message"
+            className="block text-gray-700 font-medium mb-2"
+          >
             Message
           </label>
           <textarea
@@ -91,7 +126,7 @@ const ContactForm = () => {
           type="submit"
           className="btn-primary w-full flex items-center justify-center"
         >
-          <span className='text-white'>Send Message</span>
+          <span className="text-white">Send Message</span>
           <Send size={18} className="ml-2 text-white" />
         </button>
       </form>
